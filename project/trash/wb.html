@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>WB - Административная панель</title>
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Подключение шрифта и иконок -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!-- Левая боковая панель навигации -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2>Логотип</h2>
+        </div>
+        <ul>
+            <li>
+                <a href="index.html">
+                    <i class="fas fa-home"></i>
+                    <span>Главная</span>
+                </a>
+            </li>
+            <li>
+                <a href="ozon.html">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Ozon</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="wb.html">
+                    <i class="fas fa-store"></i>
+                    <span>WB</span>
+                </a>
+            </li>
+            <!-- Дополнительные пункты меню -->
+            <li>
+                <a href="analytics.html">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Аналитика</span>
+                </a>
+            </li>
+            <li>
+                <a href="users.html">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Пользователи</span>
+                </a>
+            </li>
+            <li>
+                <a href="layout.html">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Шаблон</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Основной контент -->
+    <div class="main-content">
+
+        <!-- Верхняя панель -->
+        <header class="topbar">
+            <div class="page-title">
+                <h1>Wildberries</h1>
+            </div>
+            <div class="topbar-right">
+                <div class="user-settings">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <div class="user-account">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Центральный блок -->
+        <div class="content">
+
+            <!-- Верхний уровень (Панель поиска и выгрузки) -->
+            <div class="settings-panel">
+                <div class="setting-item search-container">
+                    <label for="search">Поиск по артикулу или названию:</label>
+                    <input type="text" id="search" placeholder="Введите артикул или название">
+                </div>
+                <div class="setting-item export-button-container">
+                    <button class="btn btn-small" id="export-button">Выгрузка</button>
+                </div>
+            </div>
+
+            <!-- Нижний уровень (Таблица данных) -->
+            <div class="table-container">
+                <table id="data-table">
+                    <thead>
+                        <tr>
+                            <th>Артикул (SKU)</th>
+                            <th>Название</th>
+                            <th>Комиссия</th>
+                            <th>Расходы</th>
+                            <th class="green-cell">Себестоимость</th>
+                            <th class="green-cell">Прибыль</th>
+                            <th class="purple-cell">Конечная цена</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Пример строки таблицы -->
+                        <tr>
+                            <td>002</td>
+                            <td>Товар Б</td>
+                            <td>10%</td>
+                            <td>800₽</td>
+                            <td contenteditable="true" class="editable-cell green-cell">4000₽</td>
+                            <td contenteditable="true" class="editable-cell green-cell">800₽</td>
+                            <td class="purple-cell">4800₽</td>
+                        </tr>
+                        <!-- Добавьте дополнительные строки по необходимости -->
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <!-- Подвал (Footer) -->
+        <footer class="footer">
+            <!-- Можно добавить дополнительные элементы -->
+        </footer>
+
+    </div>
+
+    <!-- Подключение скриптов -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!-- Верхний уровень (Панель поиска и выгрузки) -->
+<div class="settings-panel">
+    <div class="setting-item search-container">
+        <label for="search">Поиск по артикулу или названию:</label>
+        <input type="text" id="search" placeholder="Введите артикул или название">
+    </div>
+    <div class="setting-item export-button-container">
+        <button class="btn btn-small" id="export-button">Выгрузка</button>
+    </div>
+</div>
+
+<!-- Нижний уровень (Таблица данных) -->
+<div class="table-container">
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th>Артикул (SKU)</th>
+                <th>Название</th>
+                <th>Комиссия</th>
+                <th>Расходы</th>
+                <th class="green-cell">Себестоимость</th>
+                <th class="green-cell">Прибыль</th>
+                <th class="purple-cell">Конечная цена</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Пример строки таблицы -->
+            <tr>
+                <td>002</td>
+                <td>Товар Б</td>
+                <td>10%</td>
+                <td>800₽</td>
+                <td contenteditable="true" class="editable-cell green-cell">4000₽</td>
+                <td contenteditable="true" class="editable-cell green-cell">800₽</td>
+                <td class="purple-cell">4800₽</td>
+            </tr>
+            <!-- Добавьте дополнительные строки по необходимости -->
+        </tbody>
+    </table>
+</div>
+
+</div>

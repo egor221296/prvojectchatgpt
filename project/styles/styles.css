@@ -1,0 +1,366 @@
+/* Общие стили */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #F0F4F8; /* Нежный голубой фон */
+    color: #333333;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Стили для зеленых и фиолетовых ячеек */
+.green-cell {
+    background-color: #E8F5E9; /* Нежно зеленый */
+}
+
+.purple-cell {
+    background-color: #F3E5F5; /* Нежно фиолетовый */
+}
+
+.editable-cell {
+    cursor: text;
+}
+
+/* Стили для таблиц */
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-container table th,
+.table-container table td {
+    padding: 12px;
+    border: 1px solid #E0E0E0;
+    text-align: left;
+    color: #202124;
+}
+
+.table-container table thead {
+    background-color: #E8F0FE;
+}
+
+.table-container table tr:nth-child(even) {
+    background-color: #F8F9FA;
+}
+
+.table-container table tr:hover {
+    background-color: #F1F3F4;
+}
+
+/* Универсальное применение цветов к заголовкам и ячейкам */
+.table-container table th.green-cell,
+.table-container table td.green-cell {
+    background-color: #E8F5E9;
+}
+
+.table-container table th.purple-cell,
+.table-container table td.purple-cell {
+    background-color: #F3E5F5;
+}
+
+/* Дополнительные стили для редактируемых ячеек */
+.table-container table td[contenteditable="true"] {
+    background-color: #FFFFFF;
+}
+
+.table-container table td[contenteditable="true"]:hover {
+    background-color: #E3F2FD;
+}
+
+/* Левая боковая панель навигации */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 220px;
+    height: 100%;
+    background-color: #FFFFFF;
+    border-right: 1px solid #E0E0E0;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Добавлено для прокрутки при большом количестве меню */
+}
+
+.sidebar-header {
+    padding: 20px;
+    background-color: #E3F2FD;
+    text-align: center;
+}
+
+.sidebar-header h2 {
+    margin: 0;
+    color: #1E88E5;
+    font-size: 1.5em;
+}
+
+.sidebar ul {
+    flex: 1;
+}
+
+.sidebar ul li {
+    position: relative; /* Для позиционирования иконки стрелки */
+}
+
+.sidebar ul li > a {
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    color: #5F6368;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.sidebar ul li > a:hover {
+    background-color: #F1F3F4;
+    color: #1A73E8;
+}
+
+.sidebar ul li.active > a {
+    background-color: #E8F0FE;
+    color: #1A73E8;
+}
+
+.sidebar ul li > a i:first-child {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.sidebar ul li > a .submenu-toggle {
+    margin-left: auto;
+    transition: transform 0.3s;
+}
+
+.sidebar ul li.active > a > .submenu-toggle {
+    transform: rotate(180deg);
+}
+
+/* Стили для подменю */
+.submenu {
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.sidebar ul li.active > .submenu {
+    opacity: 1;
+    max-height: 500px; /* Достаточно большое значение для раскрытия */
+}
+
+.submenu li a {
+    padding: 8px 20px;
+    background-color: #F9FAFB;
+    color: #5F6368;
+    border-radius: 4px;
+    margin: 5px 0;
+    display: block;
+    transition: background 0.3s, color 0.3s;
+}
+
+.submenu li a:hover,
+.submenu li a.active {
+    background-color: #E8F0FE;
+    color: #1A73E8;
+    cursor: pointer;
+}
+
+/* Основной контент */
+.main-content {
+    margin-left: 220px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #F0F4F8;
+}
+
+/* Верхняя панель */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 10px 20px;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+/* Стили для заголовка страницы */
+.page-title h1 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #202124;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.topbar-right .user-settings,
+.topbar-right .user-account {
+    margin-left: 20px;
+    color: #5F6368;
+    cursor: pointer;
+    font-size: 24px;
+    transition: color 0.3s;
+}
+
+.topbar-right .user-settings:hover,
+.topbar-right .user-account:hover {
+    color: #1A73E8;
+}
+
+/* Центральный блок */
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #F0F4F8;
+    transition: opacity 0.3s;
+}
+
+.content.loading {
+    opacity: 0.5;
+}
+
+/* Верхний уровень (Панель настроек) */
+.settings-panel {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.setting-item {
+    flex: 1 1 200px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.setting-item label {
+    margin-bottom: 5px;
+    color: #5F6368;
+}
+
+.setting-item input[type="text"],
+.setting-item input[type="number"] {
+    padding: 10px;
+    border: 1px solid #DADCE0;
+    border-radius: 4px;
+    background-color: #F1F3F4;
+}
+
+.setting-item input[type="range"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 100%;
+    background: transparent;
+}
+
+.setting-item input[type="range"]::-webkit-slider-thumb,
+.setting-item input[type="range"]::-moz-range-thumb {
+    background-color: #1A73E8;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.setting-item input[type="range"]::-webkit-slider-runnable-track,
+.setting-item input[type="range"]::-moz-range-track {
+    height: 5px;
+    background-color: #DADCE0;
+    border-radius: 5px;
+}
+
+/* Нижний уровень (Таблица данных) */
+.table-container {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+table thead {
+    background-color: #E8F0FE;
+}
+
+/* Кнопки */
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-blue {
+    background-color: #1A73E8;
+    color: #FFFFFF;
+    transition: background 0.3s;
+}
+
+.btn-blue:hover {
+    background-color: #1669BB;
+}
+
+.btn.btn-small {
+    padding: 6px 12px;
+    font-size: 14px;
+}
+
+/* Подвал (Footer) */
+.footer {
+    background-color: #FFFFFF;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #E0E0E0;
+}
+
+.footer .btn {
+    margin-left: 10px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 60px;
+    }
+
+    .sidebar ul li > a span {
+        display: none;
+    }
+
+    .sidebar ul li > a .submenu-toggle {
+        right: 10px;
+    }
+
+    .main-content {
+        margin-left: 60px;
+    }
+
+    .setting-item {
+        flex: 1 1 100%;
+    }
+}
+
+/* Кнопка "Выгрузка таблицы" */
+.setting-item.export-button-container {
+    margin-left: auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}

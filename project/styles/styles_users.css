@@ -1,0 +1,22 @@
+/* Стили для страницы Личного кабинета */
+.account-section {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.account-section h3 {
+    margin-top: 0;
+    color: #1A73E8;
+}
+
+.account-section p {
+    margin: 8px 0;
+    color: #5F6368;
+}
+
+.account-section .btn {
+    margin-top: 10px;
+}
